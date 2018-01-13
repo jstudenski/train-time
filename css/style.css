@@ -1,0 +1,29 @@
+.side-bar {
+  height: 100%;
+  min-height: 1000px !important;
+  border-left: 2px solid orange;
+
+}
+
+.train-logo {
+  color: #ef0000;
+  text-align: center;
+  margin: 40px auto 10px auto;
+  padding-top: 13px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 10px solid red;
+}
+
+.side-bar h4 {
+  background-color: #0800b0;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 26px;
+  padding: 4px;
+  text-align: center;
+  width: 200px;
+  margin: 0px auto;
+}
