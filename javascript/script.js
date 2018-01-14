@@ -22,26 +22,22 @@ var database = firebase.database();
 $("#submit").on("click", function() {
   event.preventDefault();
 
-  name = $("#name-input").val().trim();
-  destination = $("#destination-input").val().trim();
-  startdate = $("#first-train-input").val().trim();
-  frequency = $("#frequency-input").val().trim();
+  // //name = ;
+  // destination = ;
+  // startdate = ;
+  // frequency = ;
 
   database.ref().push({
-    name: name,
-    destination: destination,
-    startdate: startdate,
-    frequency: frequency
+    name: $("#name-input").val().trim(),
+    destination: $("#destination-input").val().trim(),
+    startdate: $("#first-train-input").val().trim(),
+    frequency: $("#frequency-input").val().trim()
   });
-
-
 
   $("#name-input").val('');
   $("#destination-input").val('');
   $("#first-train-input").val('');
   $("#frequency-input").val('');
-
-
 
 });
 
@@ -56,8 +52,11 @@ database.ref().on("child_added", function(snapshot, prevChildKey) {
     var btn = $("<button>");
     btn.addClass("item-btn");
     btn.attr("data-key", snapshot.key);
-    btn.text(snapshot.key);
+    // btn.text(snapshot.key);
+    btn.html('<i class="material-icons">delete</i>');
     btn.click(remove);
+
+
 
 
   var $tr = $('<tr>').append(
@@ -65,6 +64,7 @@ database.ref().on("child_added", function(snapshot, prevChildKey) {
     $('<td>').text(snapshot.val().destination),
     $('<td>').text(snapshot.val().startdate),
     $('<td>').text(snapshot.val().frequency),
+    $('<td>').text('TEXT2'),
     $('<td>').append(btn)
   ).appendTo('#train-table');
 
@@ -72,7 +72,7 @@ database.ref().on("child_added", function(snapshot, prevChildKey) {
 
 
 function remove() {
-  console.log($(this).attr('data-key'));
+  // console.log($(this).attr('data-key'));
   database.ref().child($(this).attr('data-key')).remove();
   this.closest("tr").remove();
 }
