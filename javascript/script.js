@@ -48,12 +48,14 @@ $("#submit").on("click", function() {
 
 database.ref().on("child_added", function(snapshot, prevChildKey) {
 
-    console.log(snapshot.key);
-    var btn = $("<button>");
+  console.log(snapshot.key);
+  var btn = $("<button>");
     btn.addClass("item-btn");
     btn.attr("data-key", snapshot.key);
-    // btn.text(snapshot.key);
-    btn.html('<i class="material-icons">delete</i>');
+    var i = $("<i>");
+      i.addClass("material-icons");
+      i.text("delete")   
+    btn.append(i);
     btn.click(remove);
 
 

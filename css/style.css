@@ -21,7 +21,7 @@ thead tr {
 
 
 .train-logo {
-  color: #1400b8;
+  color: #313131;
   text-align: center;
   margin: 40px auto 10px auto;
   padding-top: 13px;
@@ -33,11 +33,12 @@ thead tr {
 
 .side-bar h4 {
   background-color: #808080;
+  border-radius: 3px;
   color: #ffffff;
   text-transform: uppercase;
-  font-weight: 500;
-  font-size: 26px;
-  padding: 4px;
+  font-weight: 400;
+  font-size: 18px;
+  padding: 8px;
   text-align: center;
   width: 200px;
   margin: 0px auto 20px auto;
@@ -48,6 +49,9 @@ thead tr {
   text-align: center;
 }
 
+thead i {
+  color: #313131;
+}
 
 .item-btn {
   background-color: #808080;
@@ -62,13 +66,17 @@ thead tr {
   border-radius: 15px;
 }
 
-.item-btn {
-  color: red;
+.item-btn:hover {
+  background-color: #E53935; 
 }
 
+.item-btn .material-icons {
+  color: #ffffff;
+  font-size: 20px;
+}
 
 button {
-  padding: 1px 0px;
+  padding: 3px 0px;
 }
 
 .input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
