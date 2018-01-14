@@ -13,6 +13,7 @@
 
       <link href="css/style.css" rel="stylesheet" type="text/css">
 
+      <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -31,18 +32,20 @@
 <!--         </div> -->
       </div>
 
-      <table>
+      <table id="train-table">
 
         <thead>
           <tr>
-              <th>Name</th>
-              <th>Item Name</th>
-              <th>Item Price</th>
+              <th>Train Name</th>
+              <th>Destination</th>
+              <th>Frequency (min)</th>
+                            <th>Next Arrival</th>
+                                          <th>Minutes Away</th>
           </tr>
         </thead>
 
-        <tbody>
-          <tr>
+<!--         <tbody> -->
+         <!--  <tr>
             <td>Alvin</td>
             <td>Eclair</td>
             <td>$0.87</td>
@@ -56,8 +59,8 @@
             <td>Jonathan</td>
             <td>Lollipop</td>
             <td>$7.00</td>
-          </tr>
-        </tbody>
+          </tr> -->
+<!--         </tbody> -->
       </table>
             
       </div>
@@ -70,85 +73,42 @@
         <h4>Add a train</h4>
 
 
-<div class="row">
-    <form class="col s12">
-<!--       <div class="row"> -->
+        <div class="row">
+          <form class="col s12">
+
+            <div class="input-field col s12">
+              <input id="name-input" type="text">
+              <label for="name-input">Train Name</label>
+            </div>
+
+            <div class="input-field col s12">
+              <input id="destination-input" type="text">
+              <label for="destination-input">Destination</label>
+            </div>
+
+            <div class="input-field col s12">
+              <input id="first-train-input" type="text">
+              <label for="first-train-input">First Train</label>
+            </div>
+
+            <div class="input-field col s12">
+              <input id="frequency-input" type="text">
+              <label for="frequency-input">Frequency (min)</label>
+            </div>
+
+            <div class="center-button">
+              <button class="red darken-1 waves-effect waves-light btn" type="submit" id="submit" name="action">Submit
+              </button>
+            </div>
 
 
-        <div class="input-field col s12">
-          <input id="first_name" type="text">
-          <label for="first_name">Train Name</label>
+
+          </form>
         </div>
 
 
-         <div class="input-field col s12">
-          <input id="last_name" type="text">
-          <label for="last_name">Destination</label>
-        </div>
+      
 
-       
-        <div class="input-field col s12">
-          <input id="last_name" type="text">
-          <label for="last_name">Destination</label>
-        </div>
-
-
-<!--       </div> -->
-      <div class="row">
-        <div class="input-field col s12">
-          <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-          <label for="disabled">Disabled</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
-          <label for="password">Password</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
-          <label for="email">Email</label>
-        </div>
-      </div>
-    </form>
-  </div>
-
-
-        
-        <form role="form" id="train-form">
-          <div class="form-group">
-            <label for="train-name">Train Name</label>
-            <br>
-            <input type="text" class="input" id="train-name-input">
-          </div>
-          <div class="form-group">
-            <label for="destination">Destination</label>
-            <br>
-            <input type="text" class="input" id="destination-input">
-          </div>
-          <div class="form-group">
-            <label for="first-train">First Train Time (HH:mm-military time)</label>
-            <br>
-            <input type="text" class="input" id="first-train-input">
-          </div>
-          <div class="form-group">
-            <label for="frequency">Frequency (min)</label>
-            <br>
-            <input type="text" class="input" id="frequency-input">
-          </div>
-  
-          <div class="center-button">
-            <button class="red darken-1 waves-effect waves-light btn" type="submit" id="submit" name="action">Submit
-            </button>
-          </div>
-
-
-
-    <!--       <button type="submit" id="submit">Submit</button> -->
-        </form>
-        <!-- Grey navigation panel -->
       </div>
 
       

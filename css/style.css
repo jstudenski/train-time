@@ -10,9 +10,12 @@
 .side-bar {
   height: 100%;
   min-height: 1000px !important;
-  border-left: 2px solid #E53935;
+  border-left: 2px solid #313131;
 
 }
+
+
+
 
 .train-logo {
   color: #E53935;
@@ -34,7 +37,7 @@
   padding: 4px;
   text-align: center;
   width: 200px;
-  margin: 0px auto;
+  margin: 0px auto 20px auto;
 }
 
 .center-button {
@@ -45,40 +48,10 @@
 
 
     .input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
-/*     border-bottom: 2px solid #E53935 !important;*/
-     box-shadow: 0 1px 0 0 #E53935 !important, 0 2px 0 0 #E53935 !important;
-
+     border-bottom: 1px solid #E53935 !important;
+     box-shadow: 0 2px 0 0 #E53935 !important;
     }
 
-
-/*.row .input-field textarea:focus {
-
-  box-shadow: 0 1px 0 0 #2196f3 !important
-}
-*/
-/* label focus color */
     .input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
-     color: orange !important;
+     color: #E53935 !important;
     }
-
-/* label underline focus color */
-
-
-
-
-   input[type=text]:focus{
-border-bottom: 1px solid black;
-box-shadow: 0 1px 0 0 black;
-}
-
-textarea:focus {
-  border-bottom: 1px solid orange;
-  -webkit-box-shadow: 0 1px 0 0 orange;
-  -moz-box-shadow: 0 1px 0 0 orange;
-  box-shadow: 0 1px 0 0 orange;
-}
-
-/*        .mat-input:focus {
-  border-bottom: 1px solid red !important;
-
-        }*/
