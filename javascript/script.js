@@ -1,7 +1,4 @@
-$("#submit").on("click", function() {
-  event.preventDefault();
-  console.log('yolo');
-});
+$('#first-train-input').mask('00:00');
 
 
  // Initialize Firebase
@@ -19,17 +16,7 @@ $("#submit").on("click", function() {
 // Create a variable to reference the database
 var database = firebase.database();
 
-// database.ref().on("value", function(snapshot) {
 
-//   console.log(snapshot.val());
-//   $('#name-input').text(snapshot.val().name);
-//   $('#destination-input').text(snapshot.val().destination);
-//   $('#first-train-input').text(snapshot.val().startdate);
-//   $('#frequency-input').text(snapshot.val().frequency);
-
-// }, function(errorObject) {
-//   console.log("The read failed: " + errorObject.code);
-// });
 
 
 $("#submit").on("click", function() {
@@ -47,6 +34,8 @@ $("#submit").on("click", function() {
     frequency: frequency
   });
 
+
+
   $("#name-input").val('');
   $("#destination-input").val('');
   $("#first-train-input").val('');
@@ -63,19 +52,28 @@ $("#submit").on("click", function() {
 
 database.ref().on("child_added", function(snapshot, prevChildKey) {
 
+    console.log(snapshot.key);
+    var btn = $("<button>");
+    btn.addClass("item-btn");
+    btn.attr("data-key", snapshot.key);
+    btn.text(snapshot.key);
+    btn.click(remove);
+
+
   var $tr = $('<tr>').append(
     $('<td>').text(snapshot.val().name),
     $('<td>').text(snapshot.val().destination),
     $('<td>').text(snapshot.val().startdate),
-    $('<td>').text(snapshot.val().frequency)
+    $('<td>').text(snapshot.val().frequency),
+    $('<td>').append(btn)
   ).appendTo('#train-table');
 
 });
 
 
-
-
-
-
-
+function remove() {
+  console.log($(this).attr('data-key'));
+  database.ref().child($(this).attr('data-key')).remove();
+  this.closest("tr").remove();
+}
 
