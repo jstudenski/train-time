@@ -1,3 +1,9 @@
+.main-title {
+  background-color: pink;
+  text-align: center;
+  padding: 15px;
+}
+
 .side-bar {
   height: 100%;
   min-height: 1000px !important;
