@@ -1,18 +1,21 @@
 .main-title {
-  background-color: pink;
+  background-color: #313131;
+  color: #ffffff;
   text-align: center;
   padding: 15px;
+  margin: 0px;
+  font-size: 45px;
 }
 
 .side-bar {
   height: 100%;
   min-height: 1000px !important;
-  border-left: 2px solid orange;
+  border-left: 2px solid #E53935;
 
 }
 
 .train-logo {
-  color: #ef0000;
+  color: #E53935;
   text-align: center;
   margin: 40px auto 10px auto;
   padding-top: 13px;
@@ -33,3 +36,49 @@
   width: 200px;
   margin: 0px auto;
 }
+
+.center-button {
+  margin-top: 10px;
+  text-align: center;
+}
+
+
+
+    .input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+/*     border-bottom: 2px solid #E53935 !important;*/
+     box-shadow: 0 1px 0 0 #E53935 !important, 0 2px 0 0 #E53935 !important;
+
+    }
+
+
+/*.row .input-field textarea:focus {
+
+  box-shadow: 0 1px 0 0 #2196f3 !important
+}
+*/
+/* label focus color */
+    .input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+     color: orange !important;
+    }
+
+/* label underline focus color */
+
+
+
+
+   input[type=text]:focus{
+border-bottom: 1px solid black;
+box-shadow: 0 1px 0 0 black;
+}
+
+textarea:focus {
+  border-bottom: 1px solid orange;
+  -webkit-box-shadow: 0 1px 0 0 orange;
+  -moz-box-shadow: 0 1px 0 0 orange;
+  box-shadow: 0 1px 0 0 orange;
+}
+
+/*        .mat-input:focus {
+  border-bottom: 1px solid red !important;
+
+        }*/
