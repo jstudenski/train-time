@@ -1,37 +1,26 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <title>Train Time</title>
-      <link href="css/reset.css" rel="stylesheet" type="text/css">
-
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!-- Compiled and minified CSS -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/css/materialize.min.css">
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      
-      <link href="css/style.css" rel="stylesheet" type="text/css">
-
-
-      <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-    </head>
-
-    <body>
-
-    <!-- Page Layout here -->
-    <div class="row">
-
-      <div class="col s9">
-
+<html>
+<head>
+  <title>Train Time</title>
+  <!--css reset-->
+  <link href="css/reset.css" rel="stylesheet" type="text/css">
+  <!-- materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/css/materialize.min.css">
+  <!--material icons-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--style-->
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <!--firebase-->
+  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+  <!--optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+  <div class="row">
+    <div class="col s9">
       <div class="row">
-  <!--       <div class="col s12"> -->
-          <h2 class="main-title">Train Schedule</h2>
-<!--         </div> -->
+        <h2 class="main-title">Train Schedule</h2>
       </div>
-
       <table id="train-table">
         <thead>
           <tr>
@@ -44,69 +33,45 @@
           </tr>
         </thead>
       </table>
-            
+    </div> <!-- col -->
+    <div class="col s3 side-bar">
+      <div class="train-logo">
+        <i class="medium material-icons ">train</i>
       </div>
-
-      <div class="col s3 side-bar">
-
-        <div class="train-logo">
-          <i class="medium material-icons ">train</i>
-        </div>
-        <h4>Add a train</h4>
-
-
-        <div class="row">
-          <form class="col s12">
-
-            <div class="input-field col s12">
-              <input id="name-input" type="text">
-              <label for="name-input">Train Name</label>
-            </div>
-
-            <div class="input-field col s12">
-              <input id="destination-input" type="text">
-              <label for="destination-input">Destination</label>
-            </div>
-
-            <div class="input-field col s12">
-              <input id="first-train-input" type="text">
-              <label for="first-train-input">First Train (hh:mm military time)</label>
-            </div>
-
-            <div class="input-field col s12">
-              <input id="frequency-input" type="text">
-              <label for="frequency-input">Frequency (min)</label>
-            </div>
-
-            <div class="center-button">
-              <button class="red darken-1 waves-effect waves-light btn" type="submit" id="submit" name="action">Submit
-              </button>
-            </div>
-
-
-
-          </form>
-        </div>
-
-
-      
-
-      </div>
-
-      
-
-
-    </div>
-
-
-    <!--materialize JavaScript-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/js/materialize.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.13/jquery.mask.js"></script>
-
-
-
-    <script src="javascript/script.js"></script>
-
-    </body>
-  </html>
+      <h4>Add a train</h4>
+      <div class="row">
+        <form class="col s12">
+          <div class="input-field col s12">
+            <input id="name-input" type="text">
+            <label for="name-input">Train Name</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="destination-input" type="text">
+            <label for="destination-input">Destination</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="first-train-input" type="text">
+            <label for="first-train-input">First Train (hh:mm military time)</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="frequency-input" type="text">
+            <label for="frequency-input">Frequency (min)</label>
+          </div>
+          <div class="center-button">
+            <button class="red darken-1 waves-effect waves-light btn" type="submit" id="submit" name="action">Submit
+            </button>
+          </div>
+        </form>
+      </div><!-- row -->
+    </div><!-- col -->
+  </div><!-- row -->
+  <!-- materialize js-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/js/materialize.min.js"></script>
+  <!-- jquery js-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- jquery mask-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.13/jquery.mask.js"></script>
+  <!-- javascript-->
+  <script src="javascript/script.js"></script>
+</body>
+</html>
