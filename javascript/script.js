@@ -18,9 +18,24 @@ var database = firebase.database();
 
 
 // Current Time
-var currentTime = moment();
-console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
-$("#current-time").html(moment(currentTime).format("hh:mm"));
+
+
+
+var updateTime = function () {
+    var currentTime = moment();
+    $("#current-time").html(moment(currentTime).format("H:mm"));
+};
+setInterval(updateTime, 1000); // every second
+
+
+
+// $(document).ready(function(){
+//     datetime = $('#datetime')
+//     update();
+//     setInterval(update, 1000);
+// });
+
+
 
 $("#submit").on("click", function() {
   event.preventDefault();
