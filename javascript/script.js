@@ -16,6 +16,12 @@ $('#first-train-input').mask('00:00');
 var database = firebase.database();
 
 
+
+// Current Time
+var currentTime = moment();
+console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+$("#current-time").html(moment(currentTime).format("hh:mm"));
+
 $("#submit").on("click", function() {
   event.preventDefault();
 

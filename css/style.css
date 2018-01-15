@@ -1,11 +1,20 @@
 .main-title {
   background-color: #313131;
   color: #ffffff;
-  text-align: center;
-  padding: 15px;
+  padding: 20px 20px 10px 20px;
   margin: 0px;
-  font-size: 45px;
 }
+
+.main-title h2{
+  text-align: center;
+  font-size: 45px;
+  margin: 0px;
+}
+
+#current-time {
+  float: right;
+}
+
 
 .side-bar {
   height: 100%;
@@ -17,7 +26,6 @@
 thead tr {
   border-bottom: 1px solid #313131;
 }
-
 
 
 .train-logo {

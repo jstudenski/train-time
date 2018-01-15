@@ -14,12 +14,15 @@
   <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
   <!--optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!--moment js-->
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </head>
 <body>
   <div class="row">
     <div class="col s9">
-      <div class="row">
-        <h2 class="main-title">Train Schedule</h2>
+      <div class="row main-title">
+        <h2>Train Schedule</h2>
+        <p id="current-time"></p>
       </div>
       <table id="train-table">
         <thead>
