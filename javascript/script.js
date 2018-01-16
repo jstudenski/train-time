@@ -1,4 +1,5 @@
 $('#first-train-input').mask('00:00');
+$('#frequency-input').mask('0#');
 
  // Initialize Firebase
   var config = {
