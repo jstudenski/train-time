@@ -4,8 +4,7 @@ A train schedule application that incorporates Firebase to host arrival and depa
 
 ## Getting Started
 
-Open **index.html**
-------
+Open **index.html**<br>
 *optional: update config variable in script.js to connect your own firebase database/*
 
 ## Built With
