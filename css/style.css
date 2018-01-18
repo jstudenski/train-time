@@ -15,26 +15,41 @@
   float: right;
 }
 
-
-.min-away {
-  background-color: #f1f1f1;
+th, td {
   text-align: center;
 }
-.destination {
-  background-color: #f1f1f1;
-}
-
-.side-bar {
-  height: 100%;
-  min-height: 1000px !important;
-  border-left: 2px solid #313131;
-
-}
-
 thead tr {
   border-bottom: 1px solid #313131;
 }
+thead i {
+  color: #313131;
+}
+.min-away, .destination {
+  background-color: #f1f1f1;
+  background-color: #f1f1f1;
+}
 
+.trash-btn {
+  background-color: #808080;
+  border: none;
+  color: white;
+  height: 26px;
+  width: 26px;
+  padding: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 15px;
+}
+
+.trash-btn:hover {
+  background-color: #E53935; 
+}
+
+.trash-btn .material-icons {
+  color: #ffffff;
+  font-size: 20px;
+}
 
 .train-logo {
   color: #313131;
@@ -45,6 +60,12 @@ thead tr {
   height: 100px;
   border-radius: 50%;
   border: 10px solid #f71a28;
+}
+
+.side-bar {
+  height: 100%;
+  min-height: 1000px !important;
+  border-left: 2px solid #313131;
 }
 
 .side-bar h4 {
@@ -63,32 +84,6 @@ thead tr {
 .center-button {
   margin-top: 10px;
   text-align: center;
-}
-
-thead i {
-  color: #313131;
-}
-
-.item-btn {
-  background-color: #808080;
-  border: none;
-  color: white;
-  height: 26px;
-  width: 26px;
-  padding: none;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 15px;
-}
-
-.item-btn:hover {
-  background-color: #E53935; 
-}
-
-.item-btn .material-icons {
-  color: #ffffff;
-  font-size: 20px;
 }
 
 button {

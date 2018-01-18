@@ -46,7 +46,7 @@ database.ref().on("child_added", function(snapshot, prevChildKey) {
 
   // generate remove button
   var btn = $("<button>");
-    btn.addClass("item-btn");
+    btn.addClass("trash-btn");
     btn.attr("data-key", snapshot.key);
     var i = $("<i>");
       i.addClass("material-icons");
