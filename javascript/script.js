@@ -43,19 +43,22 @@ $("#submit").on("click", function() {
 
 
 
+
+
 database.ref().on("child_added", function(snapshot, prevChildKey) {
 
-  console.log(snapshot.val());
-
+  console.log();
+  console.log();
 
   // Assumptions
-  var tFrequency = 3;
+  var tFrequency = snapshot.val().frequency; //3;
 
   // Time is 3:30 AM
-  var firstTime = "03:30";
+  var firstTime = snapshot.val().starttime; //"03:30";
 
   // First Time (pushed back 1 year to make sure it comes before current time)
   var firstTimeConverted = moment(firstTime, "hh:mm").subtract(1, "years");
+
   console.log(firstTimeConverted);
 
   // Current Time
@@ -76,6 +79,8 @@ database.ref().on("child_added", function(snapshot, prevChildKey) {
 
   // Next Train
   var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+
+  console.log("ARRIVAL TIME: " + (nextTrain).format("hh:mm"));
   console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
 
@@ -89,17 +94,46 @@ database.ref().on("child_added", function(snapshot, prevChildKey) {
     btn.append(i);
     btn.click(remove);
 
+  var btn2 = $("<button>");
+ //   btn.addClass("item-btn");
+//    btn.attr("data-key", snapshot.key);
+//    var i = $("<i>");
+////      i.addClass("material-icons");
+     btn2.text("update");
+//    btn.append(i);
+
+    btn2.click(update);
+
+
   // generate table
   var $tr = $('<tr>').append(
     $('<td>').text(snapshot.val().name),
     $('<td>').text(snapshot.val().destination),
     $('<td>').text(snapshot.val().starttime),
     $('<td>').text(snapshot.val().frequency),
-    $('<td>').text('TEXT2'),
-    $('<td>').append(btn)
+    $('<td>').text('TEXT2').addClass('test2'),
+    $('<td>').append(btn),
+    $('<td>').append(btn2)    
   ).appendTo('#train-table');
 
 });
+
+
+function update() {
+  //console.log("this");
+  //var item = this.closest("tr");//.find('.title'); // .find('.test2');
+
+  $(this).closest("tr").find('.test2').html("hhh");
+
+ // var item = this.parent().find('.test2');
+
+  //console.log(item.closest(".test2"));
+  console.log(item);
+
+
+  // database.ref().child($(this).attr('data-key')).remove();
+  // this.closest("tr").remove();
+}
 
 
 function remove() {
