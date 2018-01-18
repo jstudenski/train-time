@@ -1,7 +1,7 @@
 # Train Time!
 
-A train schedule application that incorporates Firebase to host arrival and departure data using Moment.js to manipulate time information. This app provides up-to-date information about various trains, namely their arrival times and how many minutes remain until they arrive at their station.
-
+A train schedule application that incorporates Firebase to host arrival and departure data using Moment.js to manipulate time information. This app provides up-to-date information about various trains, namely their arrival times and how many minutes remain until they arrive at their station.<br>
+[See it live!](https://jstudenski.github.io/train-time/)
 ## Getting Started
 
 Open **index.html**<br>
