@@ -15,6 +15,12 @@
   float: right;
 }
 
+.min-away {
+  background-color: #f1f1f1;
+  text-align: center;
+  
+}
+
 
 .side-bar {
   height: 100%;

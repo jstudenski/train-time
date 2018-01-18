@@ -42,47 +42,7 @@ $("#submit").on("click", function() {
 });
 
 
-
-
-
 database.ref().on("child_added", function(snapshot, prevChildKey) {
-
-  console.log();
-  console.log();
-
-  // Assumptions
-  var tFrequency = snapshot.val().frequency; //3;
-
-  // Time is 3:30 AM
-  var firstTime = snapshot.val().starttime; //"03:30";
-
-  // First Time (pushed back 1 year to make sure it comes before current time)
-  var firstTimeConverted = moment(firstTime, "hh:mm").subtract(1, "years");
-
-  console.log(firstTimeConverted);
-
-  // Current Time
-  var currentTime = moment();
-  console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
-
-  // Difference between the times
-  var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-  console.log("DIFFERENCE IN TIME: " + diffTime);
-
-  // Time apart (remainder)
-  var tRemainder = diffTime % tFrequency;
-  console.log(tRemainder);
-
-  // Minute Until Train
-  var tMinutesTillTrain = tFrequency - tRemainder;
-  console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
-
-  // Next Train
-  var nextTrain = moment().add(tMinutesTillTrain, "minutes");
-
-  console.log("ARRIVAL TIME: " + (nextTrain).format("hh:mm"));
-  console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
-
 
   // generate remove button
   var btn = $("<button>");
@@ -95,13 +55,7 @@ database.ref().on("child_added", function(snapshot, prevChildKey) {
     btn.click(remove);
 
   var btn2 = $("<button>");
- //   btn.addClass("item-btn");
-//    btn.attr("data-key", snapshot.key);
-//    var i = $("<i>");
-////      i.addClass("material-icons");
-     btn2.text("update");
-//    btn.append(i);
-
+    btn2.text("update");
     btn2.click(update);
 
 
@@ -109,26 +63,90 @@ database.ref().on("child_added", function(snapshot, prevChildKey) {
   var $tr = $('<tr>').append(
     $('<td>').text(snapshot.val().name),
     $('<td>').text(snapshot.val().destination),
-    $('<td>').text(snapshot.val().starttime),
-    $('<td>').text(snapshot.val().frequency),
-    $('<td>').text('TEXT2').addClass('test2'),
+    $('<td>').text(snapshot.val().starttime).addClass('starttime'),
+    $('<td>').text(snapshot.val().frequency).addClass('frequency'),
+    $('<td>').text('TEXT').addClass('arrival'),
+    $('<td>').text('TEXT2').addClass('min-away'),
     $('<td>').append(btn),
     $('<td>').append(btn2)    
   ).appendTo('#train-table');
 
+
+  update();
 });
 
 
+
+// run update function every minute (on the minute)
+var date = new Date();
+setTimeout(function() {
+    setInterval(update, 60000);
+    update();
+}, (60 - date.getSeconds()) * 1000);
+
+
 function update() {
+
+  $('tbody tr').each(function() {
+
+    //var time = $(this).find('.frq').html();
+    //console.log(time);
+   // console.log("THIS" + $(this));
+
+      // Assumptions
+      var tFrequency = $(this).find('.frequency').html();
+
+      // Time is 3:30 AM
+      var firstTime = $(this).find('.starttime').html();
+
+      // First Time (pushed back 1 year to make sure it comes before current time)
+      var firstTimeConverted = moment(firstTime, "hh:mm").subtract(1, "years");
+
+      console.log(firstTimeConverted);
+
+      // Current Time
+      var currentTime = moment();
+      console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+
+      // Difference between the times
+      var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+      console.log("DIFFERENCE IN TIME: " + diffTime);
+
+      // Time apart (remainder)
+      var tRemainder = diffTime % tFrequency;
+      console.log(tRemainder);
+
+      // Minute Until Train
+      var tMinutesTillTrain = tFrequency - tRemainder;
+      //console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+
+      // Next Train
+      var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+
+      // console.log("ARRIVAL TIME: " + ;
+      // console.log("ARRIVAL TIME: " + );
+
+
+      $(this).find('.arrival').html((nextTrain).format("hh:mm"));  
+      $(this).find('.min-away').html(tMinutesTillTrain);
+
+  });
+
+
+
+  //console.log(snapshot.val());
+
   //console.log("this");
   //var item = this.closest("tr");//.find('.title'); // .find('.test2');
 
-  $(this).closest("tr").find('.test2').html("hhh");
+//  $(this).closest("tr").find('.arrival').html("hhh");
+ 
+ // $(this).closest("tr").find('.min-away').html("min");
 
  // var item = this.parent().find('.test2');
 
   //console.log(item.closest(".test2"));
-  console.log(item);
+  //console.log(item);
 
 
   // database.ref().child($(this).attr('data-key')).remove();
