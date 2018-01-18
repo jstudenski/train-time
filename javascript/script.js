@@ -69,8 +69,6 @@ database.ref().on("child_added", function(snapshot, prevChildKey) {
   update();
 });
 
-
-
 // run update function every minute (on the minute)
 var date = new Date();
 setTimeout(function() {
@@ -80,71 +78,33 @@ setTimeout(function() {
 
 
 function update() {
-
   $('tbody tr').each(function() {
 
-    //var time = $(this).find('.frq').html();
-    //console.log(time);
-   // console.log("THIS" + $(this));
+    var frequency = $(this).find('.frequency').html();
+    var firstTime = $(this).find('.starttime').html();
 
-      // Assumptions
-      var tFrequency = $(this).find('.frequency').html();
+    // First Time (pushed back 1 year to make sure it comes before current time)
+    var firstTimeConverted = moment(firstTime, "hh:mm").subtract(1, "years");
 
-      // Time is 3:30 AM
-      var firstTime = $(this).find('.starttime').html();
+    // Current Time
+    var currentTime = moment();
 
-      // First Time (pushed back 1 year to make sure it comes before current time)
-      var firstTimeConverted = moment(firstTime, "hh:mm").subtract(1, "years");
+    // Difference between the times
+    var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
 
-      console.log(firstTimeConverted);
+    // Time apart (remainder)
+    var tRemainder = diffTime % frequency;
 
-      // Current Time
-      var currentTime = moment();
-      console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+    // Minute Until Train
+    var minTillTrain = frequency - tRemainder;
 
-      // Difference between the times
-      var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-      console.log("DIFFERENCE IN TIME: " + diffTime);
+    // Next Train
+    var nextTrain = moment().add(minTillTrain, "minutes");
 
-      // Time apart (remainder)
-      var tRemainder = diffTime % tFrequency;
-      console.log(tRemainder);
-
-      // Minute Until Train
-      var tMinutesTillTrain = tFrequency - tRemainder;
-      //console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
-
-      // Next Train
-      var nextTrain = moment().add(tMinutesTillTrain, "minutes");
-
-      // console.log("ARRIVAL TIME: " + ;
-      // console.log("ARRIVAL TIME: " + );
-
-
-      $(this).find('.arrival').html((nextTrain).format("hh:mm"));  
-      $(this).find('.min-away').html(tMinutesTillTrain);
+    $(this).find('.arrival').html((nextTrain).format("hh:mm"));  
+    $(this).find('.min-away').html(minTillTrain);
 
   });
-
-
-
-  //console.log(snapshot.val());
-
-  //console.log("this");
-  //var item = this.closest("tr");//.find('.title'); // .find('.test2');
-
-//  $(this).closest("tr").find('.arrival').html("hhh");
- 
- // $(this).closest("tr").find('.min-away').html("min");
-
- // var item = this.parent().find('.test2');
-
-  //console.log(item.closest(".test2"));
-  //console.log(item);
-
-
-  // database.ref().child($(this).attr('data-key')).remove();
-  // this.closest("tr").remove();
 }
 
 
