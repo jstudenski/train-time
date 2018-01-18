@@ -54,21 +54,15 @@ database.ref().on("child_added", function(snapshot, prevChildKey) {
     btn.append(i);
     btn.click(remove);
 
-  var btn2 = $("<button>");
-    btn2.text("update");
-    btn2.click(update);
-
-
   // generate table
   var $tr = $('<tr>').append(
     $('<td>').text(snapshot.val().name),
-    $('<td>').text(snapshot.val().destination),
+    $('<td>').text(snapshot.val().destination).addClass('destination'),
     $('<td>').text(snapshot.val().starttime).addClass('starttime'),
     $('<td>').text(snapshot.val().frequency).addClass('frequency'),
-    $('<td>').text('TEXT').addClass('arrival'),
-    $('<td>').text('TEXT2').addClass('min-away'),
-    $('<td>').append(btn),
-    $('<td>').append(btn2)    
+    $('<td>').addClass('arrival'),
+    $('<td>').addClass('min-away'),
+    $('<td>').append(btn) 
   ).appendTo('#train-table');
 
 

@@ -15,12 +15,14 @@
   float: right;
 }
 
+
 .min-away {
   background-color: #f1f1f1;
   text-align: center;
-  
 }
-
+.destination {
+  background-color: #f1f1f1;
+}
 
 .side-bar {
   height: 100%;
